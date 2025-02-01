@@ -1,0 +1,127 @@
+/* --- GENERAL DOCUMENT STYLING --- */
+@page {
+    size: A4;
+    margin: 1in; /* Standard academic margin */
+    counter-reset: page;
+}
+
+body {
+    font-family: "Times New Roman", serif; /* Preferred academic font */
+    font-size: 12pt;
+    line-height: 1.6;
+    color: black;
+    text-align: justify;
+}
+
+/* --- HEADERS & TITLES --- */
+h1, h2, h3 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 20pt;
+}
+
+h2 {
+    font-size: 16pt;
+}
+
+h3 {
+    font-size: 14pt;
+}
+
+/* --- PAGE HEADER & FOOTER --- */
+header {
+    text-align: center;
+    font-size: 10pt;
+    font-style: italic;
+    border-bottom: 1px solid gray;
+    padding-bottom: 5px;
+}
+
+footer {
+    text-align: center;
+    font-size: 10pt;
+    border-top: 1px solid gray;
+    padding-top: 5px;
+}
+
+/* Page number formatting */
+@page :right {
+    @bottom-right {
+        content: "Page " counter(page);
+    }
+}
+
+/* --- FOOTNOTES --- */
+.footnotes {
+    font-size: 10pt;
+    margin-top: 20px;
+    border-top: 1px solid gray;
+    padding-top: 10px;
+}
+
+.footnotes p {
+    text-indent: -1.5em;
+    margin-left: 1.5em;
+    line-height: 1.4;
+}
+
+/* --- TABLES --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    font-weight: bold;
+    background-color: #f5f5f5;
+}
+
+/* --- BLOCKQUOTES & CITATIONS --- */
+blockquote {
+    font-style: italic;
+    margin: 10px 40px;
+    padding: 5px;
+    border-left: 3px solid gray;
+}
+
+/* --- TEXT FORMATTING --- */
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+/* --- HIDE INTERACTIVE ELEMENTS IN PDF --- */
+button, .dropdown, .interactive-content {
+    display: none !important;
+}
+
+/* --- PAGE BREAKS FOR PDF --- */
+h2 {
+    page-break-before: always;
+}
+
+/* --- MAKE HYPERLINKS VISIBLE AS TEXT --- */
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a[href]::after {
+    content: " (" attr(href) ") ";
+    font-size: 10pt;
+    color: gray;
+}
